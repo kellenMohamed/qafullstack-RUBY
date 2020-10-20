@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cucumber</title>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<style>
+
+.cucumber-react .cucumber-status--passed {
+  color: #2CB14A;
+}
+.cucumber-react .cucumber-status--skipped {
+  color: #00A0CC;
+}
+.cucumber-react .cucumber-status--pending {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--undefined {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--ambiguous {
+  color: #F4EBFD;
+}
+.cucumber-react .cucumber-status--failed {
+  color: #BB0000;
+}
+.cucumber-react .cucumber-status--unknown {
+  color: #B6BECB;
+}
+.cucumber-react h1, .cucumber-react h2, .cucumber-react h3 {
+  padding: 0;
+  margin: 0;
+}
+.cucumber-react a {
+  color: inherit;
+}
+.cucumber-react .gherkin-document-list {
+  font: 14px "Open Sans", sans-serif;
+  color: #161C24;
+  background: #fff;
+  overflow-x: hidden;
+}
+.cucumber-react .cucumber-title {
+  margin-top: 0.3em;
+  margin-bottom: 0;
+  display: inline-block;
+}
+.cucumber-react .cucumber-title__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-title__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-tags {
+  padding: 0;
+  margin-bottom: 0;
+}
+.cucumber-react .cucumber-tags .cucumber-tag {
+  display: inline;
+  list-style-type: none;
+  padding: 4px 8px 4px 8px;
+  margin-right: 6px;
+  background-color: #FFFFFF;
+  border-radius: 6px;
+}
+.cucumber-react .cucumber-feature__icon {
+  padding-top: 0.35em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-description,
+.cucumber-react .cucumber-children {
+  margin-left: 1em;
+}
+.cucumber-react .cucumber-feature,
+.cucumber-react .cucumber-rule,
+.cucumber-react .cucumber-scenario,
+.cucumber-react .cucumber-background {
+  margin-bottom: 1em;
+}
+.cucumber-react .cucumber-steps {
+  list-style-type: none;
+  padding-left: 10px;
+}
+.cucumber-react .cucumber-steps .cucumber-step {
+  display: flex;
+}
+.cucumber-react .cucumber-steps .cucumber-step__status {
+  padding-top: 0.2em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-steps .cucumber-step__content {
+  flex-grow: 1;
+}
+.cucumber-react .cucumber-steps .cucumber-step__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-steps .cucumber-step__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-steps .cucumber-step__param {
+  font-weight: normal;
+  font-style: italic;
+}
+.cucumber-react .cucumber-table {
+  border-collapse: collapse;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.cucumber-react .cucumber-table__header-cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell__status {
+  padding: 0.5em 3px 3px 3px;
+}
+.cucumber-react .cucumber-table__cell__step {
+  flex-grow: 1;
+}
+.cucumber-react .cucumber-code {
+  padding: 0.25em;
+  background-color: #ebebeb;
+}
+.cucumber-react .cucumber-error {
+  padding: 0.5em;
+  margin: 0;
+  overflow: scroll;
+}
+.cucumber-react .cucumber-no-documents {
+  font: 14px "Open Sans", sans-serif;
+}
+.cucumber-react .cucumber-attachment {
+  background-color: #ebebeb;
+  padding: 0.5em;
+}
+.cucumber-react .cucumber-attachment__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-attachment__image {
+  margin-top: 1em;
+}
+.cucumber-react .cucumber-anchor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 0.3em;
+}
+.cucumber-react .cucumber-anchor__link {
+  opacity: 0;
+  transition: all 0.35s ease-in-out;
+  position: absolute;
+  left: -20px;
+  display: flex;
+  align-items: center;
+}
+.cucumber-react .cucumber-anchor__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-anchor:hover a {
+  opacity: 1;
+  width: max-content;
+  transition: all 0.35s ease-in-out;
+}
+.cucumber-react .cucumber-anchor > * {
+  height: 100%;
+  margin-top: 0px;
+}
+
+.cucumber-report-header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font: 11px "Open Sans", sans-serif;
+  margin-bottom: 1em;
+}
+.cucumber-report-header > * {
+  padding: 1em;
+}
+.cucumber-report-header .cucumber-status-filter {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-status-filter table {
+  width: 100%;
+}
+.cucumber-report-header .cucumber-execution-data {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-search-bar {
+  border-right: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search input {
+  padding: 0.4em;
+  border-radius: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search button {
+  height: 2.2em;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar p.help {
+  font-size: 80%;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul {
+  display: inline;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li input {
+  display: inline-block;
+  width: auto;
+  height: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li label {
+  padding-right: 1em;
+}
+
+@media only screen and (min-width: 600px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: 1/-1;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr 2fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-execution-data {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: auto;
+  }
+}
+.accordion {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.accordion__item + .accordion__item {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion__button {
+    background-color: #f4f4f4;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+}
+
+.accordion__button:hover {
+    background-color: #ddd;
+}
+
+.accordion__button:before {
+    display: inline-block;
+    content: '';
+    height: 10px;
+    width: 10px;
+    margin-right: 12px;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(-45deg);
+}
+
+.accordion__button[aria-expanded='true']::before,
+.accordion__button[aria-selected='true']::before {
+    transform: rotate(45deg);
+}
+
+.accordion__panel {
+    padding: 20px;
+    animation: fadein 0.35s ease-in;
+}
+
+
+	</style>
+</head>
+<body>
+<div id="content">
+</div>
+<script>
+window.CUCUMBER_MESSAGES = [
+{"meta":{"protocolVersion":"13.1.0","implementation":{"name":"cucumber-ruby","version":"5.1.2"},"runtime":{"name":"ruby","version":"2.6.6"},"os":{"name":"mingw32","version":"10.0.18362"},"cpu":{"name":"x64"}}},
+{"hook":{"id":"389685cd-caeb-45ef-bc30-b0f9716e557b","sourceReference":{"uri":"capybara-3.33.0/lib/capybara/cucumber.rb","location":{"line":10}}}},
+{"hook":{"id":"9d941a16-ce5d-46bc-9502-eb25a66159a3","sourceReference":{"uri":"capybara-3.33.0/lib/capybara/cucumber.rb","location":{"line":14}}}},
+{"hook":{"id":"aad78161-45d6-4a9d-96f8-64e856b53834","tagExpression":"@javascript","sourceReference":{"uri":"capybara-3.33.0/lib/capybara/cucumber.rb","location":{"line":18}}}},
+{"hook":{"id":"a26e030f-4901-456b-8c8a-485820cf02cc","sourceReference":{"uri":"capybara-3.33.0/lib/capybara/cucumber.rb","location":{"line":22}}}},
+{"stepDefinition":{"id":"a32e7db6-d591-47a7-b4c1-6953eecfe0cb","pattern":{"source":"que acesso o cadastro de um usuárioE preencho os campos do formulário com dados válidos","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/cadastro_steps.rb","location":{"line":1}}}},
+{"stepDefinition":{"id":"eb04f2e8-75ec-4735-84dd-ca86ac5fb232","pattern":{"source":"preencho os campos do formulário com dados válidos","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/cadastro_steps.rb","location":{"line":6}}}},
+{"stepDefinition":{"id":"d73ea124-bdde-4fe6-b6ac-42afa4b02a0c","pattern":{"source":"confirmo o cadastro","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/cadastro_steps.rb","location":{"line":10}}}},
+{"stepDefinition":{"id":"d3bc7acf-0f2e-490c-ae0a-c864094351e6","pattern":{"source":"o sistema deve exibir a mensagem de boas vindas","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/cadastro_steps.rb","location":{"line":14}}}},
+{"stepDefinition":{"id":"6acaf767-0960-4bd5-b23e-8f6dd2a6db85","pattern":{"source":"preencho os campos do formulário com dados válidos","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/cadastro_steps.rb","location":{"line":19}}}},
+{"stepDefinition":{"id":"a8e44a27-5068-431a-9292-fabca9308ca5","pattern":{"source":"preencho os campos do formulário {string},{string},{string},{string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/cadastro_steps.rb","location":{"line":23}}}},
+{"stepDefinition":{"id":"8b539336-933c-431c-864f-7f3fd6b0ac65","pattern":{"source":"o sistema deve exibir a mensagem de boas vindas","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/cadastro_steps.rb","location":{"line":27}}}},
+{"source":{"uri":"features/specs/features/01-cadastro_fixo.feature","data":"#language: pt\n@regressivo\nFuncionalidade: Criar Conta\nComo um usuário do site QArentena Demo\nQueria criar conta DemoPara receber noticias sobre Qualidade de software\n\n\n@cadastro_valido_fixo_pf\nCenário: Cadastrar usuário pessoa física com dados válidos\nDado que acesso o cadastro de um usuário\n   E preencho os campos do formulário com dados válidos\nQuando confirmo o cadastro\nEntão o sistema deve exibir a mensagem de boas vindas","mediaType":"text/x.cucumber.gherkin+plain"}},
+{"source":{"uri":"features/specs/features/02-cadastro_faker.feature","data":"#language: pt\n@regressivo\nFuncionalidade: Criar Conta\nComo um usuário do site QArentena Demo\nQueria criar conta DemoPara receber noticias sobre Qualidade de software\n\n\n@cadastro_valido_faker\nCenário: Cadastrar usuário com dados válidos\nDado que acesso o cadastro de um usuário\n   E preencho os campos do formulário com dados válidos\nQuando confirmo o cadastro\nEntão o sistema deve exibir a mensagem de boas vindas","mediaType":"text/x.cucumber.gherkin+plain"}},
+{"source":{"uri":"features/specs/features/cadastro_exemplos.feature","data":"\n@cadastro_valido_exemplos\nEsquema de Cenário: Cadastrar usuário com dados válidos\nDado que acesso o cadastro de um usuário\n   E preencho os campos do formulário \u003cnome\u003e,\u003csobrenome\u003e,\u003cemail\u003ee \u003ccpf\u003e\nQuando confirmo o cadastro\nEntão o sistema deve exibir a \u003cmensagem\u003e de boas vindas\nExemplos:\n| nome      | sobrenome | email                 | cpf           | mensagem |\n|'kellen'   | 'Mohamed' | 'kellen@belotto.com'  | '123456789'   | 'aa' |\n|'Julio'    | 'Silva'   | 'julio@silva.com.br'  | '987654321'   | 'bb' |\n|'Fred      | 'Santos'  | '@Fred@fred.com'      | '147258369'   | 'vv' |","mediaType":"text/x.cucumber.gherkin+plain"}},
+{"gherkinDocument":{"feature":{"tags":[{"location":{"line":2,"column":1},"name":"@regressivo","id":"63c4b708-6841-4bff-822f-d6a0438da0a4"}],"location":{"line":3,"column":1},"language":"pt","keyword":"Funcionalidade","name":"Criar Conta","description":"Como um usuário do site QArentena Demo\nQueria criar conta DemoPara receber noticias sobre Qualidade de software","children":[{"scenario":{"id":"4b2c5cad-0f4d-41de-9073-64c7c1e3742b","tags":[{"location":{"line":8,"column":1},"name":"@cadastro_valido_fixo_pf","id":"bc9c4fc1-e28a-44e0-93a7-dacb4b950a59"}],"location":{"line":9,"column":1},"keyword":"Cenário","name":"Cadastrar usuário pessoa física com dados válidos","steps":[{"location":{"line":10,"column":1},"keyword":"Dado ","text":"que acesso o cadastro de um usuário","id":"bbb27661-2873-47e0-8c38-61f0cd8d37da"},{"location":{"line":11,"column":4},"keyword":"E ","text":"preencho os campos do formulário com dados válidos","id":"f9d77c87-b9b0-4244-ad42-8abef6677c67"},{"location":{"line":12,"column":1},"keyword":"Quando ","text":"confirmo o cadastro","id":"80e90683-b377-4ada-94b6-0fccf4b29067"},{"location":{"line":13,"column":1},"keyword":"Então ","text":"o sistema deve exibir a mensagem de boas vindas","id":"9d108cac-5a84-4e59-b384-e63561054a2d"}]}}]},"uri":"features/specs/features/01-cadastro_fixo.feature"}},
+{"pickle":{"uri":"features/specs/features/01-cadastro_fixo.feature","id":"f20f16d1-a71d-4349-9f00-4d4e5c97c934","tags":[{"name":"@regressivo","astNodeId":"63c4b708-6841-4bff-822f-d6a0438da0a4"},{"name":"@cadastro_valido_fixo_pf","astNodeId":"bc9c4fc1-e28a-44e0-93a7-dacb4b950a59"}],"name":"Cadastrar usuário pessoa física com dados válidos","language":"pt","astNodeIds":["4b2c5cad-0f4d-41de-9073-64c7c1e3742b"],"steps":[{"id":"98932be1-5d23-48e8-83e0-bfe56c5ac6a7","astNodeIds":["bbb27661-2873-47e0-8c38-61f0cd8d37da"],"text":"que acesso o cadastro de um usuário"},{"id":"60f0274c-91b6-40bf-9569-2c39c821813d","astNodeIds":["f9d77c87-b9b0-4244-ad42-8abef6677c67"],"text":"preencho os campos do formulário com dados válidos"},{"id":"5efbf66a-2dbb-48ee-b109-983a7109e480","astNodeIds":["80e90683-b377-4ada-94b6-0fccf4b29067"],"text":"confirmo o cadastro"},{"id":"c3d7ca10-906f-46c2-a441-8d67c5d76669","astNodeIds":["9d108cac-5a84-4e59-b384-e63561054a2d"],"text":"o sistema deve exibir a mensagem de boas vindas"}]}},
+{"gherkinDocument":{"feature":{"tags":[{"location":{"line":2,"column":1},"name":"@regressivo","id":"b250da94-948c-428d-8b31-d1f305106242"}],"location":{"line":3,"column":1},"language":"pt","keyword":"Funcionalidade","name":"Criar Conta","description":"Como um usuário do site QArentena Demo\nQueria criar conta DemoPara receber noticias sobre Qualidade de software","children":[{"scenario":{"id":"8784313d-939b-410e-a499-40413e1b6fa8","tags":[{"location":{"line":8,"column":1},"name":"@cadastro_valido_faker","id":"16876bc7-b35f-46be-a201-8fb28f8f8b5e"}],"location":{"line":9,"column":1},"keyword":"Cenário","name":"Cadastrar usuário com dados válidos","steps":[{"location":{"line":10,"column":1},"keyword":"Dado ","text":"que acesso o cadastro de um usuário","id":"99417d6f-b40a-410e-9215-e6ee38198c17"},{"location":{"line":11,"column":4},"keyword":"E ","text":"preencho os campos do formulário com dados válidos","id":"440cc4f3-c11c-4075-aad0-8370dc688212"},{"location":{"line":12,"column":1},"keyword":"Quando ","text":"confirmo o cadastro","id":"c11d127a-f4bc-4601-b0ea-2a5b40489493"},{"location":{"line":13,"column":1},"keyword":"Então ","text":"o sistema deve exibir a mensagem de boas vindas","id":"c7888d10-7a37-4e97-b27e-44241471bade"}]}}]},"uri":"features/specs/features/02-cadastro_faker.feature"}},
+{"pickle":{"uri":"features/specs/features/02-cadastro_faker.feature","id":"1b207ff1-7b72-4fdb-aeab-02432a77aa47","tags":[{"name":"@regressivo","astNodeId":"b250da94-948c-428d-8b31-d1f305106242"},{"name":"@cadastro_valido_faker","astNodeId":"16876bc7-b35f-46be-a201-8fb28f8f8b5e"}],"name":"Cadastrar usuário com dados válidos","language":"pt","astNodeIds":["8784313d-939b-410e-a499-40413e1b6fa8"],"steps":[{"id":"080e55b2-b775-46d3-8a98-ef3b74459557","astNodeIds":["99417d6f-b40a-410e-9215-e6ee38198c17"],"text":"que acesso o cadastro de um usuário"},{"id":"77e17d0e-4bbd-4cde-8e11-3bb2a2023399","astNodeIds":["440cc4f3-c11c-4075-aad0-8370dc688212"],"text":"preencho os campos do formulário com dados válidos"},{"id":"6589d54d-920c-43ba-9bcb-0311c84de70b","astNodeIds":["c11d127a-f4bc-4601-b0ea-2a5b40489493"],"text":"confirmo o cadastro"},{"id":"23e6f3d0-b849-4254-80aa-7ecb930482fa","astNodeIds":["c7888d10-7a37-4e97-b27e-44241471bade"],"text":"o sistema deve exibir a mensagem de boas vindas"}]}},
+{"parseError":{"source":{"uri":"features/specs/features/cadastro_exemplos.feature","location":{"line":3,"column":1}},"message":"(3:1): expected: #TagLine, #FeatureLine, #Comment, #Empty, got 'Esquema de Cenário: Cadastrar usuário com dados válidos'"}}
